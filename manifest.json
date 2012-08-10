@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "Always Inject jQuery",
+  "description": "Always inject jQuery into every page without clobbering any existing libraries.",
+  "permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "lib/inject.js"
+      ]
+    }
+  ],
+  "icons": {
+    "19": "icon19.png",
+    "128": "icon128.png"
+  }
+}
