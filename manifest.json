@@ -10,7 +10,7 @@
     "*://*/*"
   ],
   "background": {
-    "page": "background.html"
+    "scripts": ["lib/background.js"]
   },
   "content_scripts": [
     {
@@ -23,6 +23,10 @@
       "run_at": "document_end"
     }
   ],
+  "browser_action": {
+    "default_icon": "images/icon19.png",
+    "default_title": "Always Inject jQuery"
+  },
   "icons": {
     "16": "images/icon16.png",
     "19": "images/icon19.png",

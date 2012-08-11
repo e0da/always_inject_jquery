@@ -29,12 +29,8 @@ load_jquery = (callback)->
 main = ->
   cache_originals()
   load_jquery ->
-    console.log $
     set_name()
     set_version()
-    console.log $().jquery
     reset_originals()
-    console.log $().jquery
-    console.log @version, @name
 
 main()
