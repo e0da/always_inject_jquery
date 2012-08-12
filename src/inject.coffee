@@ -1,7 +1,6 @@
 tell_extension = (msg, callack=null) ->
-  response = null
-  chrome.extension.sendMessage msg, (response)->
-    callback response if callback
+  console.log 'chrome', chrome
+  chrome.extension.sendMessage msg
 
 cache_originals = ->
   @orig_$ = window.$      if window.$
@@ -32,9 +31,6 @@ load_jquery = (callback)->
     callback()
   document.querySelector('head').appendChild tag
 
-tell_extension = (msg)->
-  chrome.extension.sendMessage msg
-
 report_name_and_version = ->
     tell_extension id: 'name and version', name: @name, version: @version
 
@@ -45,5 +41,6 @@ main = ->
     set_version()
     reset_originals()
     report_name_and_version()
+    console.log @name, @version
 
 main()
