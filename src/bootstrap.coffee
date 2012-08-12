@@ -9,6 +9,5 @@ head = ->
 
 main = ->
   head().appendChild script()
-  chrome.browserAction.setBadgeText {text: 'yo'}
 
 main()

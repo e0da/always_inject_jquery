@@ -1,3 +1,8 @@
+tell_extension = (msg, callack=null) ->
+  response = null
+  chrome.extension.sendMessage msg, (response)->
+    callback response if callback
+
 cache_originals = ->
   @orig_$ = window.$      if window.$
   @orig_j = window.jQuery if window.jQuery
@@ -14,6 +19,7 @@ reset_originals = ->
 
 set_version = ->
   @version = $().jquery
+  @name = 'wtf'
 
 set_name = ->
   # TODO
@@ -26,11 +32,18 @@ load_jquery = (callback)->
     callback()
   document.querySelector('head').appendChild tag
 
+tell_extension = (msg)->
+  chrome.extension.sendMessage msg
+
+report_name_and_version = ->
+    tell_extension id: 'name and version', name: @name, version: @version
+
 main = ->
   cache_originals()
   load_jquery ->
     set_name()
     set_version()
     reset_originals()
+    report_name_and_version()
 
 main()
