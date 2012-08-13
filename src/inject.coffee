@@ -34,7 +34,14 @@ load_jquery = (callback)->
 report_name_and_version = ->
     tell_extension id: 'name and version', name: @name, version: @version
 
+debug = ->
+  p = document.createElement 'p'
+  p.id = 'yoyoyo'
+  document.body.appendChild p
+  p.dataset.msg = JSON.stringify msg: 'test'
+
 main = ->
+  debug()
   cache_originals()
   load_jquery ->
     set_name()

@@ -21,6 +21,15 @@
         "lib/bootstrap.js"
       ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "lib/content.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "browser_action": {
