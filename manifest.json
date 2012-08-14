@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "name": "Always Inject jQuery",
   "description": "Always inject jQuery into every page without clobbering any existing libraries.",
   "web_accessible_resources": [
@@ -24,7 +24,7 @@
     }
   ],
   "browser_action": {
-    "default_icon": "images/icon19.png",
+    "default_icon": "images/badge.png",
     "default_title": "Always Inject jQuery"
   },
   "icons": {

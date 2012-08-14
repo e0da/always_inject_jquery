@@ -10,11 +10,10 @@ listen = (type, callback)->
     callback(request) if request.type == type
 
 set_name_on_badge = (request)->
-  console.log request
   badge.text request.name
 
 main = ->
   badge.init()
-  listen 'name and version', set_name_on_badge
+  listen 'script_name', set_name_on_badge
 
 main()

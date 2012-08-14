@@ -13,8 +13,8 @@
    inkscape:version="0.48.3.1 r9886"
    version="1.1"
    id="svg2"
-   height="19"
-   width="19"
+   height="128"
+   width="128"
    inkscape:export-filename="/home/force/code/always_inject_jquery/icon19.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -25,16 +25,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-47.664988"
-     inkscape:cy="16.331778"
+     inkscape:zoom="4.5078125"
+     inkscape:cx="64"
+     inkscape:cy="64"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1230"
-     inkscape:window-height="789"
+     inkscape:window-height="718"
      inkscape:window-x="122"
-     inkscape:window-y="95"
+     inkscape:window-y="24"
      inkscape:window-maximized="0"
      showguides="false"
      inkscape:guide-bbox="true">
@@ -193,7 +193,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -201,22 +201,27 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1"
-     transform="translate(0,-1033.3622)">
-    <path
-       style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0f67a1;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic"
-       d="m 4.65625,1036.1747 -0.4375,1.9688 2.78125,0 0.40625,-1.9688 -2.75,0 z"
-       id="path3855" />
-    <path
-       style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic"
-       d="m 4.0625,1038.9247 -0.5625,2.5938 -0.75,3.4062 c -0.1710655,0.8125 -0.2581867,1 -0.75,1 -0.449047,0 -1.21875,0.031 -1.21875,0.031 l -0.4375,2.0312 c 0,0 1.4094879,3e-4 2.09375,3e-4 1.7748048,0 2.5591703,-0.5824 3.09375,-3.0628 l 1.28125,-6 -2.75,0 z"
-       id="path3836"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccsccscccc" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path3838"
-       style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic"
-       d="m 18.437699,1038.598 c 0.320749,-1.9031 -0.04277,-4.7898 -4.020043,-4.7898 -3.934507,0 -5.6024024,2.7798 -6.2011318,5.6024 -0.6201124,2.9081 0.151336,5.5354 4.0858428,5.5141 l 5.483969,0 0.689181,-2.625 -1.444267,0 c 0.363514,-0.7911 1.214001,-2.4824 1.406449,-3.7013 m -3.271631,0.7698 c -0.299989,1.2431 -0.544683,2.0349 -0.962943,2.9295 l -1.38921,0 c -1.454057,0 -1.881722,-1.0477 -1.496825,-2.8867 0.406281,-1.8817 1.111928,-2.9295 2.523219,-2.9295 1.454057,0 1.73204,0.9836 1.325759,2.8867"
-       sodipodi:nodetypes="csccccccccscsc" />
+     transform="translate(0,-924.3622)">
+    <g
+       id="g3029"
+       transform="matrix(5.2794188,0,0,5.2794188,14.1852,-4506.9727)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3855"
+         d="m 4.65625,1036.1747 -0.4375,1.9688 2.78125,0 0.40625,-1.9688 -2.75,0 z"
+         style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0f67a1;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic" />
+      <path
+         sodipodi:nodetypes="cccsccscccc"
+         inkscape:connector-curvature="0"
+         id="path3836"
+         d="m 4.0625,1038.9247 -0.5625,2.5938 -0.75,3.4062 c -0.1710655,0.8125 -0.2581867,1 -0.75,1 -0.449047,0 -1.21875,0.031 -1.21875,0.031 l -0.4375,2.0312 c 0,0 1.4094879,3e-4 2.09375,3e-4 1.7748048,0 2.5591703,-0.5824 3.09375,-3.0628 l 1.28125,-6 -2.75,0 z"
+         style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic" />
+      <path
+         sodipodi:nodetypes="csccccccccscsc"
+         d="m 18.437699,1038.598 c 0.320749,-1.9031 -0.04277,-4.7898 -4.020043,-4.7898 -3.934507,0 -5.6024024,2.7798 -6.2011318,5.6024 -0.6201124,2.9081 0.151336,5.5354 4.0858428,5.5141 l 5.483969,0 0.689181,-2.625 -1.444267,0 c 0.363514,-0.7911 1.214001,-2.4824 1.406449,-3.7013 m -3.271631,0.7698 c -0.299989,1.2431 -0.544683,2.0349 -0.962943,2.9295 l -1.38921,0 c -1.454057,0 -1.881722,-1.0477 -1.496825,-2.8867 0.406281,-1.8817 1.111928,-2.9295 2.523219,-2.9295 1.454057,0 1.73204,0.9836 1.325759,2.8867"
+         style="font-size:16px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Quagmire;-inkscape-font-specification:Quagmire Bold Italic"
+         id="path3838"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
 </svg>

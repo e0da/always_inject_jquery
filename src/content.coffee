@@ -1,39 +1,21 @@
-load_script = (url, callback=null)->
+script = ->
   tag = document.createElement 'script'
-  tag.src = url
-  tag.onload = callback if callback
-  @head.appendChild tag
-
-load_inject = ->
-  load_script chrome.extension.getURL('lib/inject.js'), ->
-    load_jquery()
-
-load_jquery = ->
-  protocol = if location.protocol == 'https:' then 'https:' else 'http:'
-  load_script "#{protocol}//code.jquery.com/jquery.min.js", ->
-    # console.log $, jQuery
+  tag.src = chrome.extension.getURL('lib/inject.js')
+  tag
 
 head = ->
-  document.querySelector 'head'
+  document.head
 
-inject = ->
-  @head.appendChild script()
+aij_comm = ->
+  JSON.parse head().dataset.aij_comm
 
-tell_extension = (msg)->
-  chrome.extension.sendMessage msg
-
-tell_extension_name = (e)=>
-    msg = JSON.parse @head.dataset.aij_comm
-    chrome.extension.sendMessage
-      type: 'name and version'
-      name: @name
-
-set_up_comm = ->
-  @head.addEventListener 'aij_comm', tell_extension_name
+report_script_name = (e)->
+  chrome.extension.sendMessage
+    type: 'script_name'
+    name: aij_comm().name
 
 main = ->
-  @head = head()
-  set_up_comm()
-  load_inject()
+  head().addEventListener 'aij_comm', report_script_name
+  head().appendChild script()
 
 main()
