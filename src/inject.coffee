@@ -1,53 +1,24 @@
-tell_extension = (msg, callack=null) ->
-  console.log 'chrome', chrome
-  chrome.extension.sendMessage msg
+save_originals = ->
+  @original_$      = $
+  @original_jQuery = jQuery
 
-cache_originals = ->
-  @orig_$ = window.$      if window.$
-  @orig_j = window.jQuery if window.jQuery
+original_$ = ->
+  window.$j = @original_$
+  '$j'
 
-reset_originals = ->
-  #
-  # TODO
-  #
-  # This needs to set the jQuery that we want to keep to some other name then
-  # report to the user what that name is.
-  #
-  window.$      = @orig_$
-  window.jQuery = @orig_j
+original_jQuery = ->
+  window.$jQ = @original_jQuery
+  '$jQ'
 
-set_version = ->
-  @version = $().jquery
-  @name = 'wtf'
-
-set_name = ->
-  # TODO
-
-load_jquery = (callback)->
-  tag = document.createElement 'script'
-  protocol = if location.protocol == 'https:' then 'https:' else 'http:'
-  tag.src = "#{protocol}//code.jquery.com/jquery.min.js"
-  tag.onload = ->
-    callback()
-  document.querySelector('head').appendChild tag
-
-report_name_and_version = ->
-    tell_extension id: 'name and version', name: @name, version: @version
-
-debug = ->
-  p = document.createElement 'p'
-  p.id = 'yoyoyo'
-  document.body.appendChild p
-  p.dataset.msg = JSON.stringify msg: 'test'
+tell_content_name = ->
+  @head.dataset.aij_comm = JSON.stringify
+    original_$:      original_$()
+    original_jQuery: original_jQuery()
+  @head.dispatchEvent(new CustomEvent 'aij_comm')
 
 main = ->
-  debug()
-  cache_originals()
-  load_jquery ->
-    set_name()
-    set_version()
-    reset_originals()
-    report_name_and_version()
-    console.log @name, @version
+  @head = document.head
+  save_originals()
+  tell_content_name()
 
 main()

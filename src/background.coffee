@@ -5,13 +5,13 @@ badge =
   text: (text)->
     chrome.browserAction.setBadgeText text: text
 
-listen = (id, callback)->
+listen = (type, callback)->
   chrome.extension.onMessage.addListener (request, sender, send_response)->
-    callback() if request.id == id
+    callback(request) if request.type == type
 
 set_name_on_badge = (request)->
-    badge.text name
-    console.log request.name, request.version
+  console.log request
+  badge.text request.name
 
 main = ->
   badge.init()
