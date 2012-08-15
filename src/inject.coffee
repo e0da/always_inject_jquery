@@ -33,12 +33,8 @@ tell_name = ->
   @name ?= ''
   tell_extension name: @name
 
-blank_name = ->
-  tell_extension name: ''
-
 set_focus_behavior = ->
   window.addEventListener 'focus', tell_name
-  window.addEventListener 'blur', blank_name
 
 blacklisted = ->
   @blacklisted ?= location.href.match BLACKLIST
