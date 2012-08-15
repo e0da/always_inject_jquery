@@ -3,9 +3,6 @@ BLACKLIST = ///
   # Twitter has its own fresh jQuery, and injecting our own breaks it because
   # of some unknown race condition.
   .*twitter.com.*
-
-  # Don't know why it doesn't work on Chrome webstore, but it doesn't.
-  | .*chrome.google.com/webstore.*
 ///
 
 shuffle_pointers = ->
@@ -28,14 +25,20 @@ shuffle_pointers = ->
   if @oj
     window.jQuery = @oj
 
-tell_name = ->
-  @name = '' if blacklisted()
-  @head.dataset.aij_comm = JSON.stringify
-    name: @name
+tell_extension = (msg)->
+  @head.dataset.aij_comm = JSON.stringify msg
   @head.dispatchEvent new CustomEvent 'aij_comm'
+
+tell_name = ->
+  @name ?= ''
+  tell_extension name: @name
+
+blank_name = ->
+  tell_extension name: ''
 
 set_focus_behavior = ->
   window.addEventListener 'focus', tell_name
+  window.addEventListener 'blur', blank_name
 
 blacklisted = ->
   @blacklisted ?= location.href.match BLACKLIST
@@ -47,8 +50,7 @@ load_jquery = ->
   tag.onload = ->
     shuffle_pointers()
     tell_name()
-  @head.appendChild tag unless blacklisted()
-  set_focus_behavior()
+  @head.appendChild tag
 
 save_originals = ->
   try
@@ -58,7 +60,10 @@ save_originals = ->
 
 main = ->
   @head = document.head
-  save_originals()
-  load_jquery()
+  set_focus_behavior()
+  tell_name()
+  unless blacklisted()
+    save_originals()
+    load_jquery()
 
 main()
