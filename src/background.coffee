@@ -7,15 +7,12 @@ badge =
   text: (text)->
     chrome.browserAction.setBadgeText text: text
 
-listen = (type, callback)->
+listen_for_script_name = ->
   chrome.extension.onMessage.addListener (request, sender, send_response)->
-    callback(request) if request.type == type
-
-set_name_on_badge = (request)->
-  badge.text request.name
+    badge.text request.name if request.type is 'script_name'
 
 main = ->
   badge.init()
-  listen 'script_name', set_name_on_badge
+  listen_for_script_name()
 
 main()
