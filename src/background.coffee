@@ -1,18 +1,8 @@
-badge =
-  init: ->
-    chrome.browserAction.setBadgeBackgroundColor color: '#5db0e6'
-    chrome.browserAction.onClicked.addListener (tab)->
-      chrome.tabs.sendMessage tab.id, 'clobber'
+chrome.browserAction.setBadgeBackgroundColor color: '#5db0e6'
 
-  text: (text)->
-    chrome.browserAction.setBadgeText text: text
+chrome.browserAction.onClicked.addListener (tab)->
+  chrome.tabs.sendMessage tab.id, 'clobber'
 
-listen_for_script_name = ->
-  chrome.extension.onMessage.addListener (request, sender, send_response)->
-    badge.text request.name if request.type is 'script_name'
-
-main = ->
-  badge.init()
-  listen_for_script_name()
-
-main()
+chrome.extension.onMessage.addListener (request, sender, send_response)->
+  if request.type is 'script_name'
+    chrome.browserAction.setBadgeText text: request.name
