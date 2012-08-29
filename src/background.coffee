@@ -1,6 +1,8 @@
 badge =
   init: ->
     chrome.browserAction.setBadgeBackgroundColor color: '#5db0e6'
+    chrome.browserAction.onClicked.addListener (tab)->
+      chrome.tabs.sendMessage tab.id, 'clobber'
 
   text: (text)->
     chrome.browserAction.setBadgeText text: text

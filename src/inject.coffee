@@ -6,18 +6,19 @@ BLACKLIST = ///
 ///
 
 shuffle_pointers = ->
+  @injected = window.$
   if @o$
     unless window.$$
-      window.$$ = $
+      window.$$ = @injected
       @name = '$$'
     else unless window.$_
-      window.$_ = $
+      window.$_ = @injected
       @name = '$_'
     else unless window.$j
-      window.$j = $
+      window.$j = @injected
       @name = '$j'
     else
-      window.jQ = $
+      window.jQ = @injected
       @name = 'jQ'
     window.$ = @o$
   else
@@ -54,6 +55,14 @@ save_originals = ->
   try
     @oj = jQuery
 
+clobber = =>
+  window.$ = @injected
+  @name = '$'
+  tell_name()
+
+listen_for_clobber = ->
+  @head.addEventListener 'aij_clobber', clobber
+
 main = ->
   @head = document.head
   set_focus_behavior()
@@ -61,5 +70,6 @@ main = ->
   unless blacklisted()
     save_originals()
     load_jquery()
+    listen_for_clobber()
 
 main()
