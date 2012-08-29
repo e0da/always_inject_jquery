@@ -26,16 +26,10 @@ shuffle_pointers = ->
   if @oj
     window.jQuery = @oj
 
-tell_extension = (msg)->
-  @head.dataset.aij_comm = JSON.stringify msg
-  @head.dispatchEvent new CustomEvent 'aij_comm'
-
 tell_name = ->
   @name ?= ''
-  tell_extension name: @name
-
-set_focus_behavior = ->
-  window.addEventListener 'focus', tell_name
+  @head.dataset.aij_comm = JSON.stringify name: @name
+  @head.dispatchEvent new CustomEvent 'aij_comm'
 
 blacklisted = ->
   @blacklisted ?= location.href.match BLACKLIST
@@ -60,16 +54,13 @@ clobber = =>
   @name = '$'
   tell_name()
 
-listen_for_clobber = ->
-  @head.addEventListener 'aij_clobber', clobber
-
 main = ->
   @head = document.head
-  set_focus_behavior()
+  window.addEventListener 'focus', tell_name
   tell_name()
   unless blacklisted()
     save_originals()
     load_jquery()
-    listen_for_clobber()
+    @head.addEventListener 'aij_clobber', clobber
 
 main()
