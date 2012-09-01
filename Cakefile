@@ -4,7 +4,6 @@ fs = require 'fs'
 {spawn, exec} = require 'child_process'
 
 pkg_files = [
-  'background.html'
   'images'
   'lib'
   'manifest.json'
