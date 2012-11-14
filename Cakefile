@@ -4,8 +4,9 @@ fs = require 'fs'
 {spawn, exec} = require 'child_process'
 
 pkg_files = [
-  'images'
   'lib'
+  'images'
+  'vendor'
   'manifest.json'
   'README.md'
   'LICENSE'
