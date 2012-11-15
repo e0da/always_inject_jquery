@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "0.2.3",
+  "version": "0.2.4",
   "name": "Always Inject jQuery",
   "description": "Always inject jQuery into every page without clobbering any existing libraries.",
   "web_accessible_resources": [
@@ -11,7 +11,10 @@
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "background": {
-    "scripts": ["lib/background.js"]
+    "scripts": [
+      "vendor/ga.js",
+      "lib/background.js"
+    ]
   },
   "content_scripts": [
     {
@@ -19,7 +22,6 @@
         "*://*/*"
       ],
       "js": [
-        "vendor/ga.js",
         "lib/content.js"
       ],
       "run_at": "document_end"
