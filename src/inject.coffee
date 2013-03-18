@@ -3,6 +3,7 @@ BLACKLIST = ///
   # Twitter has its own fresh jQuery, and injecting our own breaks it because
   # of some unknown race condition.
   .*twitter.com.*
+  .*mycloud.rackspace.com.*
 ///
 
 shuffle_pointers = ->
