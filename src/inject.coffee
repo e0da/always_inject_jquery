@@ -1,11 +1,3 @@
-BLACKLIST = ///
-
-  # Twitter has its own fresh jQuery, and injecting our own breaks it because
-  # of some unknown race condition.
-  .*twitter.com.*
-  .*mycloud.rackspace.com.*
-///
-
 shuffle_pointers = ->
   @injected = window.$
   if @o$
@@ -32,9 +24,6 @@ tell_name = ->
   @head.dataset.aij_comm = JSON.stringify name: @name
   @head.dispatchEvent new CustomEvent 'aij_comm'
 
-blacklisted = ->
-  @blacklisted ?= location.href.match BLACKLIST
-
 load_jquery = ->
   tag = document.createElement 'script'
   protocol = if location.protocol == 'https:' then 'https:' else 'http:'
@@ -59,9 +48,8 @@ main = ->
   @head = document.head
   window.addEventListener 'focus', tell_name
   tell_name()
-  unless blacklisted()
-    save_originals()
-    load_jquery()
-    @head.addEventListener 'aij_clobber', clobber
+  save_originals()
+  load_jquery()
+  @head.addEventListener 'aij_clobber', clobber
 
 main()
