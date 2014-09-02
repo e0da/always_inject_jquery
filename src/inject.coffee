@@ -4,9 +4,9 @@ shuffle_pointers = ->
     unless window.$$
       window.$$ = @injected
       @name = '$$'
-    else unless window.$_
-      window.$_ = @injected
-      @name = '$_'
+#    else unless window.$_
+#      window.$_ = @injected
+#      @name = '$_'
     else unless window.$j
       window.$j = @injected
       @name = '$j'
