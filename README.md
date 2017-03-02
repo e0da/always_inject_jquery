@@ -1,3 +1,7 @@
+# This project is dead.
+
+I don't update this anymore because I don't use it. Sorry everybody. :'(
+
 Always Inject jQuery
 ====================
 
